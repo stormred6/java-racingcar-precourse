@@ -25,8 +25,15 @@ public class RacingGame {
     }
 
     public void runRace() {
-         for(RacingCar racingCar : this.racingCars){
-             racingCar.race(this.gameCount);
-         }
+        for (int i = 0; i < gameCount; i++) {
+            runEachRacingcCarRace();
+            System.out.println();
+        }
+    }
+
+    private void runEachRacingcCarRace() {
+        for(RacingCar racingCar : this.racingCars){
+            racingCar.race();
+        }
     }
 }

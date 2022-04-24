@@ -17,25 +17,10 @@ class RacingCarTest {
         RacingCar racingCar = new RacingCar("1");
 
         //when
-        racingCar.race(4);
+        racingCar.race();
 
         //then
         assertThat(racingCar.getForwardCount()).isGreaterThanOrEqualTo(0);
     }
 
-    @Test
-    @DisplayName("각 자동차 횟수 만큼 racing")
-    void runGameRacingCarByGameCountTest(){
-        //given
-        RacingGame racingGame = new RacingGame("1,2,3","5");
-
-        //when
-        racingGame.runRace();
-        List<RacingCar> racingCars = racingGame.getRacingCars();
-
-        //then
-        for(RacingCar racingCar : racingCars){
-            assertThat(racingCar.getForwardCount()).isGreaterThanOrEqualTo(0);
-        }
-    }
 }

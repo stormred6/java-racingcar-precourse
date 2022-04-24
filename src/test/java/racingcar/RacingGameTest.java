@@ -86,4 +86,13 @@ public class RacingGameTest {
         assertThat(result).isEqualTo(false);
     }
 
+    @Test
+    @DisplayName("각 자동차 횟수 만큼 racing")
+    void runGameRacingCarByGameCountTest(){
+        //given
+        RacingGame racingGame = new RacingGame("pobi,crong,honux","5");
+
+        //when
+        racingGame.runRace();
+    }
 }

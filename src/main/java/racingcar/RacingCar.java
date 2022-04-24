@@ -1,6 +1,7 @@
 package racingcar;
 
 
+
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class RacingCar {
@@ -10,16 +11,19 @@ public class RacingCar {
         this.racingCarName = racingGameNameInput;
     }
 
-    public void race(int gameCount) {
-        for (int i = 0; i < gameCount; i++) {
-            runRace();
-        }
-    }
+    public void race() {
+        String dash = "";
+        int random = pickNumberInRange(0, 9);
 
-    private void runRace() {
-        if(pickNumberInRange(0, 9) >=4){
+        if(random >=4){
             forwardCount++;
         }
+
+        for (int i = 0; i < forwardCount; i++) {
+            dash += "-";
+        }
+
+        System.out.println(this.racingCarName + " : " + dash);
     }
 
     public String getRacingCarName() {
