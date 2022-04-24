@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -16,12 +17,10 @@ public class RacingGameTest {
         RacingGame racingGame = new RacingGame("1,2,3","3");
 
         //when
-        HashMap<String, RacingCar> racingCar = racingGame.getRacingCar();
+        List<RacingCar> racingCars = racingGame.getRacingCars();
 
         //then
-        assertThat(racingCar.get("1").getRacingCarName()).isEqualTo("1");
-        assertThat(racingCar.get("2").getRacingCarName()).isEqualTo("2");
-        assertThat(racingCar.get("3").getRacingCarName()).isEqualTo("3");
+        assertThat(racingCars.size()).isEqualTo(3);
     }
 
     @Test
