@@ -6,34 +6,37 @@ import java.util.List;
 
 public class RacingGame {
     private int gameCount;
-    private List<RacingCar> racingCars;
+    private RacingCars racingCars;
     public RacingGame(String racingCarNameInput,String gameCountInput) {
-        racingCars = new ArrayList<>();
+        List<RacingCar> racingCars = new ArrayList<>();
+
         gameCount = Integer.parseInt(gameCountInput);
         String[] racingCarNames = racingCarNameInput.split(",");
+
         for(String racingCarName : racingCarNames){
             racingCars.add(new RacingCar(racingCarName));
         }
+
+        this.racingCars = new RacingCars(racingCars);
     }
 
     public int getGameCount() {
         return gameCount;
     }
 
-    public List<RacingCar> getRacingCars() {
+    public RacingCars getRacingCars() {
         return racingCars;
     }
 
     public void runRace() {
+        System.out.println("실행 결과");
         for (int i = 0; i < gameCount; i++) {
-            runEachRacingcCarRace();
+            racingCars.runEachRacingcCarRace();
             System.out.println();
         }
     }
 
-    private void runEachRacingcCarRace() {
-        for(RacingCar racingCar : this.racingCars){
-            racingCar.race();
-        }
+    public void getGameResult() {
+
     }
 }

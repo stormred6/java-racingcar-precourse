@@ -17,7 +17,7 @@ public class RacingGameTest {
         RacingGame racingGame = new RacingGame("1,2,3","3");
 
         //when
-        List<RacingCar> racingCars = racingGame.getRacingCars();
+        List<RacingCar> racingCars = racingGame.getRacingCars().getRacingCars();
 
         //then
         assertThat(racingCars.size()).isEqualTo(3);
@@ -94,5 +94,17 @@ public class RacingGameTest {
 
         //when
         racingGame.runRace();
+    }
+
+    @Test
+    @DisplayName("게임 우승자 결정")
+    void racingGameResultTest(){
+        //given
+        RacingGame racingGame = new RacingGame("pobi,crong,honux","5");
+
+        //when
+        racingGame.runRace();
+
+        racingGame.getGameResult();
     }
 }
