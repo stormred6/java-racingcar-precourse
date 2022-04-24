@@ -3,6 +3,8 @@ package racingcar;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RacingGameTest {
@@ -11,13 +13,15 @@ public class RacingGameTest {
     @DisplayName("사용자 이름 comma로 구분 입력")
     void inputRacingGameNamesTest(){
         //given
-        RacingCar racingCar = new RacingCar("1,2,3");
+        RacingGame racingGame = new RacingGame("1,2,3","3");
 
         //when
-        String[] racingGameCars = racingCar.getRacingGameCars();
+        HashMap<String, RacingCar> racingCar = racingGame.getRacingCar();
 
         //then
-        assertThat(racingGameCars.length).isEqualTo(3);
+        assertThat(racingCar.get("1").getRacingCarName()).isEqualTo("1");
+        assertThat(racingCar.get("2").getRacingCarName()).isEqualTo("2");
+        assertThat(racingCar.get("3").getRacingCarName()).isEqualTo("3");
     }
 
     @Test
@@ -50,7 +54,7 @@ public class RacingGameTest {
     @DisplayName("게임 횟수 입력")
     void gameCountTest(){
         //given
-        RacingGame racingGame = new RacingGame("1");
+        RacingGame racingGame = new RacingGame("1,2,3","1");
 
         //when
         int gameCount = racingGame.getGameCount();

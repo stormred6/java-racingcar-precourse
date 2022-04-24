@@ -1,13 +1,26 @@
 package racingcar;
 
 
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+
 public class RacingCar {
-    private String[] racingGameCars;
+    private String racingCarName;
+    private int forwardCount;
     public RacingCar(String racingGameNameInput) {
-        racingGameCars = racingGameNameInput.split(",");
+        this.racingCarName = racingGameNameInput;
     }
 
-    public String[] getRacingGameCars() {
-        return racingGameCars;
+    public void race() {
+        if(pickNumberInRange(0, 9) >=4){
+            forwardCount++;
+        };
+    }
+
+    public String getRacingCarName() {
+        return racingCarName;
+    }
+
+    public int getForwardCount() {
+        return forwardCount;
     }
 }
