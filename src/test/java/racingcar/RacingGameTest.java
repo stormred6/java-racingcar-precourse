@@ -105,6 +105,6 @@ public class RacingGameTest {
         //when
         racingGame.runRace();
 
-        racingGame.getGameResult();
+        racingGame.getRacingResult();
     }
 }

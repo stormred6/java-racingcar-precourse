@@ -4,7 +4,7 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
-public class RacingCar {
+public class RacingCar implements Comparable<RacingCar> {
     private String racingCarName;
     private int forwardCount;
     public RacingCar(String racingGameNameInput) {
@@ -32,5 +32,12 @@ public class RacingCar {
 
     public int getForwardCount() {
         return forwardCount;
+    }
+
+
+    @Override
+    public int compareTo(RacingCar o) {
+        return Integer.compare(this.getForwardCount(), o.getForwardCount());
+
     }
 }

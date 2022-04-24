@@ -36,7 +36,20 @@ public class RacingGame {
         }
     }
 
-    public void getGameResult() {
+    public void getRacingResult() {
+        String winingRacingCar = "";
+        int winningRacingCount = 0;
 
+        for(RacingCar racingCar : racingCars.getRacingCars()){
+            if(racingCar.getForwardCount() > winningRacingCount){
+               winingRacingCar = "";
+               winingRacingCar = racingCar.getRacingCarName();
+               winningRacingCount = racingCar.getForwardCount();
+            }else if(racingCar.getForwardCount() == winningRacingCount){
+                winingRacingCar += ", " + racingCar.getRacingCarName();
+            }
+        }
+
+        System.out.println("최종 우승자 : " + winingRacingCar);
     }
 }
