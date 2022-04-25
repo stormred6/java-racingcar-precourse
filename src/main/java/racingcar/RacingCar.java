@@ -37,7 +37,7 @@ public class RacingCar implements Comparable<RacingCar> {
 
     @Override
     public int compareTo(RacingCar o) {
-        return Integer.compare(this.getForwardCount(), o.getForwardCount());
+        return Integer.compare(o.getForwardCount(),this.getForwardCount());
 
     }
 }

@@ -38,18 +38,20 @@ public class RacingGame {
 
     public void getRacingResult() {
         String winingRacingCar = "";
-        int winningRacingCount = 0;
+        racingCars.getRacingCars().sort(RacingCar::compareTo);
+        winingRacingCar = racingCars.getRacingCars().get(0).getRacingCarName();
 
-        for(RacingCar racingCar : racingCars.getRacingCars()){
-            if(racingCar.getForwardCount() > winningRacingCount){
-               winingRacingCar = "";
-               winingRacingCar = racingCar.getRacingCarName();
-               winningRacingCount = racingCar.getForwardCount();
-            }else if(racingCar.getForwardCount() == winningRacingCount){
-                winingRacingCar += ", " + racingCar.getRacingCarName();
-            }
+        for (int i = 1; i < racingCars.getRacingCars().size(); i++) {
+            winingRacingCar = getSameWinningRacingCar(winingRacingCar, i);
         }
 
         System.out.println("최종 우승자 : " + winingRacingCar);
+    }
+
+    private String getSameWinningRacingCar(String winingRacingCar, int i) {
+        if(racingCars.getRacingCars().get(0).getForwardCount() == racingCars.getRacingCars().get(i).getForwardCount()){
+            winingRacingCar += ", "+racingCars.getRacingCars().get(i).getRacingCarName();
+        }
+        return winingRacingCar;
     }
 }
